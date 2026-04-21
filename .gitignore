@@ -1,0 +1,22 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+
+# AI Models (Avoid pushing huge GGUF files)
+models/
+*.gguf
+*.bin
+*.pt
+*.onnx
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac system files
+.DS_Store
+
+# Environment variables
+.env

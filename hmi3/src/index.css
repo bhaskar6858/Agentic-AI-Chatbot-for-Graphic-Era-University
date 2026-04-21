@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* "A Flight with Airbus" — cinematic sky design system. All HSL. */
+
+@layer base {
+  :root {
+    /* Sky palette */
+    --background: 215 70% 8%;
+    --foreground: 210 40% 98%;
+
+    --sky-deep: 222 75% 6%;
+    --sky-mid: 215 70% 18%;
+    --sky-high: 205 80% 42%;
+    --sky-glow: 195 95% 70%;
+    --sun-warm: 32 100% 70%;
+    --sun-core: 45 100% 88%;
+    --cloud: 210 40% 96%;
+
+    --card: 215 60% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 60% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 95% 60%;
+    --primary-foreground: 222 75% 6%;
+
+    --secondary: 215 50% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 210 25% 70%;
+
+    --accent: 32 100% 70%;
+    --accent-foreground: 222 75% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 40% 98% / 0.12;
+    --input: 215 40% 22%;
+    --ring: 195 95% 60%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-sky: linear-gradient(
+      180deg,
+      hsl(222 75% 6%) 0%,
+      hsl(215 70% 14%) 30%,
+      hsl(205 75% 28%) 60%,
+      hsl(32 90% 55%) 92%,
+      hsl(45 100% 78%) 100%
+    );
+    --gradient-glass: linear-gradient(
+      135deg,
+      hsl(210 40% 98% / 0.08),
+      hsl(210 40% 98% / 0.02)
+    );
+    --gradient-text: linear-gradient(
+      120deg,
+      hsl(195 95% 75%),
+      hsl(210 40% 98%),
+      hsl(45 100% 78%)
+    );
+
+    /* Shadows / glows */
+    --glow-primary: 0 0 40px hsl(195 95% 60% / 0.45);
+    --glow-sun: 0 0 80px hsl(45 100% 78% / 0.55);
+    --shadow-glass: 0 20px 60px -20px hsl(222 75% 4% / 0.6);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 215 60% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 195 95% 60%;
+    --sidebar-primary-foreground: 222 75% 6%;
+    --sidebar-accent: 215 50% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 210 40% 98% / 0.1;
+    --sidebar-ring: 195 95% 60%;
+  }
+
+  .dark {
+    /* Same palette — app is always cinematic dark */
+    --background: 215 70% 8%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply min-h-screen;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid hsl(210 40% 98% / 0.1);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 8s ease-in-out infinite;
+  }
+
+  .glow-primary { box-shadow: var(--glow-primary); }
+  .glow-sun { box-shadow: var(--glow-sun); }
+
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(210 40% 98% / 0.15);
+    border-radius: 999px;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes plane-vibrate {
+  0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+  25% { transform: translate(1px, -1px) rotate(-1deg); }
+  50% { transform: translate(-1px, 1px) rotate(-3deg); }
+  75% { transform: translate(1px, 1px) rotate(-2deg); }
+}
+
+@keyframes smoke-rise {
+  0% { transform: translate(0,0) scale(0.5); opacity: 0.9; }
+  100% { transform: translate(var(--tx, -20px), var(--ty, -10px)) scale(1.6); opacity: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2); opacity: 0; }
+}
