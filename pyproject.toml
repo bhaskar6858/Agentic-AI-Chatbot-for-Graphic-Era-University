@@ -3,11 +3,48 @@ name = "mistral"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = "==3.10.*"
+
 dependencies = [
-    "fastapi>=0.136.0",
-    "langchain>=1.2.15",
+    "torch>=2.4.0",
+    "torchvision>=0.19.0",
+    "chromadb>=1.5.4",
+    "fastapi>=0.135.1",
+    "huggingface-hub[cli]==0.34.4",
+    "ipykernel>=7.2.0",
+    "ipython>=8.39.0",
+    "jupyter>=1.1.1",
+    "langchain>=0.3.0",
+    "langchain-chroma>=0.1.4",
+    "langchain-classic>=1.0.3",
     "langchain-community>=0.4.1",
-    "llama-cpp-python>=0.3.20",
-    "uvicorn>=0.44.0",
+    "langchain-groq>=1.1.2",
+    "langchain-huggingface>=1.2.1",
+    "langchain-ollama>=1.0.1",
+    "langchain-text-splitters>=1.1.1",
+    "langgraph>=1.0.10",
+    "numpy<2.0.0",
+    "onnxruntime==1.19.2",  # Keep only this one
+    "pandas>=2.0.0,<2.1.0",
+    "pdfplumber>=0.11.9",
+    "protobuf==3.20.3",
+    "pymupdf>=1.27.1",
+    "pypdf>=6.7.5",
+    "python-dotenv>=1.2.2",
+    "requests>=2.32.5",
+    "sentence-transformers>=3.3.0",
+    "uvicorn>=0.41.0",
+    "langchain-openai>=1.1.12",
+    "npm>=0.1.1",
+    "transformers>=4.50.0",
+    "tokenizers>=0.21.0",
+    "accelerate>=1.1.0",
+    "sentencepiece>=0.2.1",
+    "openai>=2.32.0",
+    "llama-cpp-python>=0.3.23",
+    "pytesseract>=0.3.13",
+    "pillow>=12.2.0",
 ]
+
+[tool.uv]
+managed = true

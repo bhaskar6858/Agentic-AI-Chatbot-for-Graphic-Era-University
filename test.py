@@ -1,10 +1,10 @@
 from langchain_community.llms import LlamaCpp
 
 model= LlamaCpp(
-    model_path= "./models/Ministral-3-3B-Instruct-2512-Q4_K_M.gguf",
+    model_path= "./models/Mistral-7B-Instruct-v0.3-Q3_K_M.gguf",
     n_gpu_layers= -1,
     n_ctx= 2048,
-    verbose= True
+    verbose= False
 
 )
 
